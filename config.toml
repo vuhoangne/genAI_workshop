@@ -1,5 +1,5 @@
 # Change the default theme to be use when building the site with Hugo
-baseURL = "https://vuhoangne.github.io/genai_workshop/"
+baseURL = "https://vuhoangne.github.io/genAI_workshop/"
 theme = "hugo-theme-learn"
 canonifyURLs = true
 
@@ -23,7 +23,6 @@ home = [ "HTML", "RSS", "JSON"]
 title = "AWS Account Setup"
 weight = 1
 languageName = "English"
-
 [[Languages.en.menu.shortcuts]]
 name = "<i class='fab fa-facebook'></i> AWS Study Group"
 identifier = "AWS Study Group FB"
@@ -34,7 +33,6 @@ weight = 20
 title = "Thiết lập AWS Account"
 weight = 2
 languageName = "Tiếng Việt"
-
 [[Languages.vi.menu.shortcuts]]
 name = "<i class='fab fa-facebook'></i> AWS Study Group"
 identifier = "AWS Study Group FB"
