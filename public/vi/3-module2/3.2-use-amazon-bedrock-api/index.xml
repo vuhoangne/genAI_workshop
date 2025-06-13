@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sử dụng Amazon Bedrock API on Thiết lập AWS Account</title>
+    <link>http://localhost:1313/genai_workshop/vi/3-module2/3.2-use-amazon-bedrock-api/</link>
+    <description>Recent content in Sử dụng Amazon Bedrock API on Thiết lập AWS Account</description>
+    <generator>Hugo</generator>
+    <language>vi</language>
+    <atom:link href="http://localhost:1313/genai_workshop/vi/3-module2/3.2-use-amazon-bedrock-api/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="vi" class="js csstransforms3d">
+  <head><script src="/genai_workshop/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=genai_workshop/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.147.8">
+    <meta name="description" content="">
+<meta name="author" content="journeyoftheaverageguy@gmail.com">
+
+    <link rel="icon" href="http://localhost:1313/genai_workshop/images/favicon.png" type="image/png">
+
+    <title>Module 1 :: Thiết lập AWS Account</title>
+
+    
+    <link href="http://localhost:1313/genai_workshop/css/nucleus.css?1749807119" rel="stylesheet">
+    <link href="http://localhost:1313/genai_workshop/css/fontawesome-all.min.css?1749807119" rel="stylesheet">
+    <link href="http://localhost:1313/genai_workshop/css/hybrid.css?1749807119" rel="stylesheet">
+    <link href="http://localhost:1313/genai_workshop/css/featherlight.min.css?1749807119" rel="stylesheet">
+    <link href="http://localhost:1313/genai_workshop/css/perfect-scrollbar.min.css?1749807119" rel="stylesheet">
+    <link href="http://localhost:1313/genai_workshop/css/auto-complete.css?1749807119" rel="stylesheet">
+    <link href="http://localhost:1313/genai_workshop/css/atom-one-dark-reasonable.css?1749807119" rel="stylesheet">
+    <link href="http://localhost:1313/genai_workshop/css/theme.css?1749807119" rel="stylesheet">
+    <link href="http://localhost:1313/genai_workshop/css/hugo-theme.css?1749807119" rel="stylesheet">
+    
+    <link href="http://localhost:1313/genai_workshop/css/theme-workshop.css?1749807119" rel="stylesheet">
+    
+    
+
+    <script src="http://localhost:1313/genai_workshop/js/jquery-3.3.1.min.js?1749807119"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="http://localhost:1313/genai_workshop/vi/2-module1/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="http://localhost:1313/genai_workshop/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="http://localhost:1313/genai_workshop/js/lunr.min.js?1749807119"></script>
+<script type="text/javascript" src="http://localhost:1313/genai_workshop/js/auto-complete.js?1749807119"></script>
+<script type="text/javascript">
+    
+        var baseurl = "http:\/\/localhost:1313\/genai_workshop\/\/vi";
+    
+</script>
+<script type="text/javascript" src="http://localhost:1313/genai_workshop/js/search.js?1749807119"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-introduction/" title="Giới thiệu" class="dd-item 
+        
+        
+        
+        ">
+      <a href="http://localhost:1313/genai_workshop/vi/1-introduction/">
+           <b> 1. </b> Giới thiệu
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-module1/" title="Module 1" class="dd-item 
+        
+        active
+        
+        ">
+      <a href="http://localhost:1313/genai_workshop/vi/2-module1/">
+           <b> 2. </b> Module 1
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-module2/" title="Module 2" class="dd-item 
+        
+        
+        
+        ">
+      <a href="http://localhost:1313/genai_workshop/vi/3-module2/">
+           <b> 3. </b> Module 2
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-module2/3.1-use-amazon-bedrock-playground/" title="Sử Dụng Amazon Bedrock Playground" class="dd-item 
+        
+        
+        
+        ">
+      <a href="http://localhost:1313/genai_workshop/vi/3-module2/3.1-use-amazon-bedrock-playground/">
+           <b> 3.1 </b> Sử Dụng Amazon Bedrock Playground
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-module2/3.2-use-amazon-bedrock-api/" title="Sử dụng Amazon Bedrock API" class="dd-item 
+        
+        
+        
+        ">
+      <a href="http://localhost:1313/genai_workshop/vi/3-module2/3.2-use-amazon-bedrock-api/">
+           <b> 3.2 </b> Sử dụng Amazon Bedrock API
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-module2/3.2-use-amazon-bedrock-api/3.2.1-generating-images-with-amazon-bedrock/" title="Sử dụng Amazon Bedrock API để Tạo Ảnh với Amazon Nova Canvas" class="dd-item 
+        
+        
+        
+        ">
+      <a href="http://localhost:1313/genai_workshop/vi/3-module2/3.2-use-amazon-bedrock-api/3.2.1-generating-images-with-amazon-bedrock/">
+           <b> 3.2.1 </b> Sử dụng Amazon Bedrock API để Tạo Ảnh với Amazon Nova Canvas
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-module2/3.2-use-amazon-bedrock-api/3.2.2-generating-text-with-amazon-bedrock/" title="Tạo Văn Bản với Amazon Bedrock" class="dd-item 
+        
+        
+        
+        ">
+      <a href="http://localhost:1313/genai_workshop/vi/3-module2/3.2-use-amazon-bedrock-api/3.2.2-generating-text-with-amazon-bedrock/">
+           <b> 3.2.2 </b> Tạo Văn Bản với Amazon Bedrock
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-module2/3.2-use-amazon-bedrock-api/3.2.3-understanding-video-with-amazon-bedrock/" title="Hiểu Video với Amazon Bedrock" class="dd-item 
+        
+        
+        
+        ">
+      <a href="http://localhost:1313/genai_workshop/vi/3-module2/3.2-use-amazon-bedrock-api/3.2.3-understanding-video-with-amazon-bedrock/">
+           <b> 3.2.3 </b> Hiểu Video với Amazon Bedrock
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-module3/" title="Module 3" class="dd-item 
+        
+        
+        
+        ">
+      <a href="http://localhost:1313/genai_workshop/vi/4-module3/">
+           <b> 4. </b> Module 3
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-module3/4.1-retrieval-augmented-generation-with-amazon-bedrock/" title="Retrieval Augmented Generation với Amazon Bedrock" class="dd-item 
+        
+        
+        
+        ">
+      <a href="http://localhost:1313/genai_workshop/vi/4-module3/4.1-retrieval-augmented-generation-with-amazon-bedrock/">
+           <b> 4.1. </b> Retrieval Augmented Generation với Amazon Bedrock
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-module3/4.2-using-amazon-bedrock-knowledge-bases/" title="Sử dụng Amazon Bedrock Knowledge Bases" class="dd-item 
+        
+        
+        
+        ">
+      <a href="http://localhost:1313/genai_workshop/vi/4-module3/4.2-using-amazon-bedrock-knowledge-bases/">
+           <b> 4.2. </b> Sử dụng Amazon Bedrock Knowledge Bases
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-module3/4.3-building-agents-for-amazon-bedrock/" title="Xây dựng Agents cho Amazon Bedrock" class="dd-item 
+        
+        
+        
+        ">
+      <a href="http://localhost:1313/genai_workshop/vi/4-module3/4.3-building-agents-for-amazon-bedrock/">
+           <b> 4.3. </b> Xây dựng Agents cho Amazon Bedrock
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-module3/4.3-building-agents-for-amazon-bedrock/4.3.1-debugging-lambda-functions-with-amazon-q/" title="Gỡ lỗi hàm Lambda với Amazon Q" class="dd-item 
+        
+        
+        
+        ">
+      <a href="http://localhost:1313/genai_workshop/vi/4-module3/4.3-building-agents-for-amazon-bedrock/4.3.1-debugging-lambda-functions-with-amazon-q/">
+           <b> 4.3.1 </b> Gỡ lỗi hàm Lambda với Amazon Q
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-module3/4.3-building-agents-for-amazon-bedrock/4.3.2-agents-api/" title="API của Agent" class="dd-item 
+        
+        
+        
+        ">
+      <a href="http://localhost:1313/genai_workshop/vi/4-module3/4.3-building-agents-for-amazon-bedrock/4.3.2-agents-api/">
+           <b> 4.3.2 </b> API của Agent
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-wrapping-up/" title="Wrapping Up" class="dd-item 
+        
+        
+        
+        ">
+      <a href="http://localhost:1313/genai_workshop/vi/5-wrapping-up/">
+           <b> 5. </b> Wrapping Up
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-clean-up/" title="Dọn dẹp tài nguyên" class="dd-item 
+        
+        
+        
+        ">
+      <a href="http://localhost:1313/genai_workshop/vi/6-clean-up/">
+           <b> 6. </b> Dọn dẹp tài nguyên
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj/"><i class='fab fa-facebook'></i> AWS Study Group</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="http://localhost:1313/genai_workshop/2-module1/">English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="vi" value="http://localhost:1313/genai_workshop/vi/2-module1/" selected>Tiếng Việt</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830891&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
+</left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>25/05/2025</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Team </b> <br>
+           
+            <i>
+                <a href="https://www.linkedin.com/in/jotaguy/"  style="color:orange">Gia Hưng</a> <br>
+                <a href="https://www.linkedin.com/in/vanhoangkha/"  style="color:orange">Kha Văn</a> <br>
+                <a href="https://www.linkedin.com/in/lenguyenvuhoang-hayden/"  style="color:orange">Vũ Hoàng</a> <br>
+            </i>
+        </left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='http://localhost:1313/genai_workshop/vi/'>Building with Generative AI on AWS using PartyRock, Amazon Bedrock, and Amazon Q</a> > Module 1
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Module 1
+            </h1>
+          
+
+        
+
+
+
+	<h4 id="xây-dựng-ứng-dụng-generative-ai-với-partyrock">Xây Dựng Ứng Dụng Generative AI với PartyRock</h4>
+<h4 id="partyrock-là-gì">PartyRock là gì?</h4>
+<p><strong>PartyRock</strong> là một playground tạo ứng dụng Generative AI có thể chia sẻ, cho phép bạn thử nghiệm kỹ thuật prompt một cách thực tế và thú vị. Chỉ với vài cú nhấp chuột, bạn có thể xây dựng, chia sẻ và tùy biến ứng dụng để khám phá Generative AI.</p>
+<h4 id="một-số-ví-dụ-ứng-dụng">Một số ví dụ ứng dụng:</h4>
+<ul>
+<li>Tạo ứng dụng tạo truyện cười theo chủ đề tuỳ chọn.</li>
+<li>Tạo và chơi trò chơi đố vui trực tuyến với bạn bè.</li>
+<li>Tạo AI kể chuyện để dẫn dắt buổi chơi nhập vai kỳ ảo.</li>
+</ul>
+<p><img src="http://localhost:1313/genai_workshop/images/2-module1/module1.webp?width=90pc" alt="module 1"></p>
+<p>Thông qua việc xây dựng và chơi với các ứng dụng trên PartyRock, bạn sẽ học được các kỹ thuật quan trọng như:</p>
+<ul>
+<li>Hiểu cách mô hình nền phản hồi các prompt</li>
+<li>️ Thử nghiệm kỹ thuật prompt engineering</li>
+<li>Kết chuỗi prompt để tạo hành vi phức tạp hơn</li>
+</ul>
+
+<div class="notices info" ><p><strong>Lưu ý:</strong> Bạn có thể tạo hồ sơ bằng cách đăng nhập xã hội qua Amazon.com, Apple hoặc Google.<br>
+PartyRock tách biệt với AWS Console và <strong>không yêu cầu tài khoản AWS</strong>.</p>
+</div>
+
+<hr>
+<h4 id="bài-tập-1-xây-dựng-ứng-dụng-partyrock">Bài Tập 1: Xây Dựng Ứng Dụng PartyRock</h4>
+<h4 id="ứng-dụng-moodwisebooks">Ứng dụng: MoodWiseBooks</h4>
+<p>Chúng ta sẽ xây dựng một ứng dụng gợi ý sách dựa trên tâm trạng của bạn.</p>
+<p><img src="http://localhost:1313/genai_workshop/images/2-module1/module1.webp?width=90pc" alt="module 1"></p>
+<h4 id="các-bước-thực-hiện">Các bước thực hiện:</h4>
+<ol>
+<li>Truy cập <a href="https://partyrock.aws/">PartyRock website</a></li>
+<li>Đăng nhập bằng tài khoản Amazon.com, Apple hoặc Google</li>
+<li>Nhấn <strong>Generate app</strong></li>
+<li>Nhập prompt sau:<br>
+<code>Provide book recommendations based on your mood and a chat bot to talk about the books</code></li>
+<li>Nhấn <strong>Generate</strong></li>
+</ol>
+<h4 id="sử-dụng-ứng-dụng">Sử Dụng Ứng Dụng</h4>
+<p>PartyRock sẽ tự động tạo giao diện để:</p>
+<ul>
+<li>Nhận đầu vào từ người dùng</li>
+<li>Đưa ra gợi ý sách</li>
+<li>Bao gồm chatbot để thảo luận về sách</li>
+</ul>
+<p>Hãy thử nhập tâm trạng của bạn và nói chuyện với chatbot về các cuốn sách được đề xuất.<br>
+Bạn có thể chia sẻ ứng dụng bằng cách nhấn <strong>Share</strong>.</p>
+<hr>
+<h4 id="cập-nhật-ứng-dụng">Cập Nhật Ứng Dụng</h4>
+<p>Trong PartyRock, mỗi thành phần giao diện là một <strong>Widget</strong>. Widget có thể:</p>
+<ul>
+<li>Hiển thị nội dung</li>
+<li>Nhận đầu vào từ người dùng</li>
+<li>Kết nối với widget khác</li>
+<li>Tạo đầu ra</li>
+</ul>
+<h4 id="các-loại-widget-có-hỗ-trợ-ai">️Các loại Widget có hỗ trợ AI:</h4>
+<ol>
+<li>️ Tạo hình ảnh</li>
+<li>Chatbot</li>
+<li>Tạo văn bản</li>
+</ol>
+<p>Bạn có thể chỉnh sửa các widget AI để thay đổi hành vi và kết quả.</p>
+<h4 id="các-loại-widget-khác">Các loại widget khác:</h4>
+<ul>
+<li><strong>User input</strong> – Cho phép người dùng tương tác</li>
+<li><strong>Static text</strong> – Hiển thị mô tả hoặc hướng dẫn</li>
+<li><strong>Document upload</strong> – Nhận tài liệu từ người dùng</li>
+</ul>
+<p>Tham khảo thêm tại <a href="https://partyrock.aws/guide">PartyRock Guide</a></p>
+<hr>
+<h4 id="bài-tập-2-vui-chơi-với-partyrock">Bài Tập 2: Vui Chơi với PartyRock</h4>
+<ul>
+<li>Thử thay đổi prompt trong ứng dụng của bạn.</li>
+<li>Thử nghiệm kết chuỗi đầu ra từ widget này làm đầu vào cho widget khác.</li>
+<li>Thêm widget vẽ ảnh từ gợi ý sách</li>
+</ul>
+<hr>
+<h4 id="remix-ứng-dụng">Remix Ứng Dụng</h4>
+<p>Tính năng <strong>Remix</strong> giúp bạn:</p>
+<ul>
+<li>Tạo bản sao ứng dụng về tài khoản cá nhân</li>
+<li>Tuỳ chỉnh và mở rộng ứng dụng có sẵn</li>
+<li>Remix các app công khai từ <a href="https://partyrock.aws/discover">PartyRock Discover page</a> hoặc bạn bè</li>
+</ul>
+<hr>
+<h4 id="tạo-snapshot">Tạo Snapshot</h4>
+<p>Khi có phản hồi thú vị hoặc hài hước:</p>
+<ol>
+<li>Đảm bảo app của bạn đã bật chế độ public</li>
+<li>Nhấn <strong>Snapshot</strong> ở góc phải trên</li>
+<li>Chia sẻ URL chứa đầu vào và đầu ra hiện tại</li>
+</ol>
+<hr>
+<h4 id="tổng-kết">Tổng Kết</h4>
+<p>PartyRock cho phép bạn khám phá và tạo nguyên mẫu ý tưởng Generative AI một cách nhanh chóng.<br>
+Để xây dựng ứng dụng sẵn sàng cho sản xuất, bạn có thể hiện thực hoá ý tưởng bằng <strong>Amazon Bedrock</strong>.</p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="http://localhost:1313/genai_workshop/vi/1-introduction/" title="Giới thiệu"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="http://localhost:1313/genai_workshop/vi/3-module2/" title="Module 2" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="http://localhost:1313/genai_workshop/js/clipboard.min.js?1749807119"></script>
+    <script src="http://localhost:1313/genai_workshop/js/perfect-scrollbar.min.js?1749807119"></script>
+    <script src="http://localhost:1313/genai_workshop/js/perfect-scrollbar.jquery.min.js?1749807119"></script>
+    <script src="http://localhost:1313/genai_workshop/js/jquery.sticky.js?1749807119"></script>
+    <script src="http://localhost:1313/genai_workshop/js/featherlight.min.js?1749807119"></script>
+    <script src="http://localhost:1313/genai_workshop/js/highlight.pack.js?1749807119"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://localhost:1313/genai_workshop/js/modernizr.custom-3.6.0.js?1749807119"></script>
+    <script src="http://localhost:1313/genai_workshop/js/learn.js?1749807119"></script>
+    <script src="http://localhost:1313/genai_workshop/js/hugo-learn.js?1749807119"></script>
+
+    <link href="http://localhost:1313/genai_workshop/mermaid/mermaid.css?1749807119" rel="stylesheet" />
+    <script src="http://localhost:1313/genai_workshop/mermaid/mermaid.js?1749807119"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+/* Fix for language switcher dropdown */
+#sidebar #prefooter .select-style {
+  position: relative;
+}
+
+#sidebar #prefooter .select-style select {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  opacity: 1;
+  z-index: 10;
+  position: relative;
+  background: transparent;
+}
+
+#sidebar #prefooter .select-style:hover select,
+#sidebar #prefooter .select-style select:focus {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+/* Make dropdown stay visible for longer */
+#sidebar #prefooter .select-style select option {
+  background-color: #252c31;
+  color: #fff;
+  padding: 10px;
+}
+
+/* Increase clickable area */
+#sidebar #prefooter li a.padding {
+  padding: 10px;
+  display: block;
+}

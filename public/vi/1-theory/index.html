@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="vi" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.146.1">
+    <meta name="description" content="">
+<meta name="author" content="journeyoftheaverageguy@gmail.com">
+
+    <link rel="icon" href="//localhost:1313/images/favicon.png" type="image/png">
+
+    <title>Giới thiệu Amazon Bedrock Agent :: Thiết lập AWS Account</title>
+
+    
+    <link href="//localhost:1313/css/nucleus.css?1747730864" rel="stylesheet">
+    <link href="//localhost:1313/css/fontawesome-all.min.css?1747730864" rel="stylesheet">
+    <link href="//localhost:1313/css/hybrid.css?1747730864" rel="stylesheet">
+    <link href="//localhost:1313/css/featherlight.min.css?1747730864" rel="stylesheet">
+    <link href="//localhost:1313/css/perfect-scrollbar.min.css?1747730864" rel="stylesheet">
+    <link href="//localhost:1313/css/auto-complete.css?1747730864" rel="stylesheet">
+    <link href="//localhost:1313/css/atom-one-dark-reasonable.css?1747730864" rel="stylesheet">
+    <link href="//localhost:1313/css/theme.css?1747730864" rel="stylesheet">
+    <link href="//localhost:1313/css/hugo-theme.css?1747730864" rel="stylesheet">
+    
+    <link href="//localhost:1313/css/theme-workshop.css?1747730864" rel="stylesheet">
+    
+    
+
+    <script src="//localhost:1313/js/jquery-3.3.1.min.js?1747730864"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="//localhost:1313/vi/1-theory/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="//localhost:1313/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="//localhost:1313/js/lunr.min.js?1747730864"></script>
+<script type="text/javascript" src="//localhost:1313/js/auto-complete.js?1747730864"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/localhost:1313\/\/vi";
+    
+</script>
+<script type="text/javascript" src="//localhost:1313/js/search.js?1747730864"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-theory/" title="Giới thiệu Amazon Bedrock Agent" class="dd-item 
+        
+        active
+        
+        ">
+      <a href="//localhost:1313/vi/1-theory/">
+           <b> 1. </b> Giới thiệu Amazon Bedrock Agent
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prerequisites/" title="Chuẩn bị" class="dd-item 
+        
+        
+        
+        ">
+      <a href="//localhost:1313/vi/2-prerequisites/">
+           <b> 2. </b> Chuẩn bị
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prerequisites/2.1-configuring-iam-user-access-key/" title="Cấu hình IAM User Access Key" class="dd-item 
+        
+        
+        
+        ">
+      <a href="//localhost:1313/vi/2-prerequisites/2.1-configuring-iam-user-access-key/">
+           <b> 2.1 </b> Cấu hình IAM User Access Key
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prerequisites/2.2-configuring-access-to-foundation-model/" title="Cấu hình truy cập Foundation models" class="dd-item 
+        
+        
+        
+        ">
+      <a href="//localhost:1313/vi/2-prerequisites/2.2-configuring-access-to-foundation-model/">
+           <b> 2.2. </b> Cấu hình truy cập Foundation models
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prerequisites/2.3-setting-up-execution-environment/" title="Thiết lập môi trường thực thi code" class="dd-item 
+        
+        
+        
+        ">
+      <a href="//localhost:1313/vi/2-prerequisites/2.3-setting-up-execution-environment/">
+           <b> 2.3 </b> Thiết lập môi trường thực thi code
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prerequisites/2.4-generating-synthetic-stock-data/" title="Tạo dữ liệu chứng khoán mẫu" class="dd-item 
+        
+        
+        
+        ">
+      <a href="//localhost:1313/vi/2-prerequisites/2.4-generating-synthetic-stock-data/">
+           <b> 2.4 </b> Tạo dữ liệu chứng khoán mẫu
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-developing-amazon-bedrock-agent/" title="Triển khai Amazon Bedrock Agent" class="dd-item 
+        
+        
+        
+        ">
+      <a href="//localhost:1313/vi/3-developing-amazon-bedrock-agent/">
+           <b> 3. </b> Triển khai Amazon Bedrock Agent
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-invoking-agent/" title="Thực thi Amazon Bedrock Agent" class="dd-item 
+        
+        
+        
+        ">
+      <a href="//localhost:1313/vi/4-invoking-agent/">
+           <b> 4. </b> Thực thi Amazon Bedrock Agent
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-invoking-agent/4.1-invoking-code-interpreter/" title="Thực Thi Trình Biên Dịch Code" class="dd-item 
+        
+        
+        
+        ">
+      <a href="//localhost:1313/vi/4-invoking-agent/4.1-invoking-code-interpreter/">
+           <b> 4.1. </b> Thực Thi Trình Biên Dịch Code
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-invoking-agent/4.2-sending-files-to-agent/" title="Gửi files cho Agent" class="dd-item 
+        
+        
+        
+        ">
+      <a href="//localhost:1313/vi/4-invoking-agent/4.2-sending-files-to-agent/">
+           <b> 4.2. </b> Gửi files cho Agent
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-invoking-agent/4.3-generating-files-with-code-interpreter/" title="Tạo File với Trình Thông Dịch Mã" class="dd-item 
+        
+        
+        
+        ">
+      <a href="//localhost:1313/vi/4-invoking-agent/4.3-generating-files-with-code-interpreter/">
+           <b> 4.3. </b> Tạo File với Trình Thông Dịch Mã
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-resource-clean-up/" title="Dọn dẹp tài nguyên" class="dd-item 
+        
+        
+        
+        ">
+      <a href="//localhost:1313/vi/5-resource-clean-up/">
+           <b> 5. </b> Dọn dẹp tài nguyên
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-conclusion/" title="Kết luận" class="dd-item 
+        
+        
+        
+        ">
+      <a href="//localhost:1313/vi/6-conclusion/">
+           <b> 6. </b> Kết luận
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj/"><i class='fab fa-facebook'></i> AWS Study Group</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="//localhost:1313/1-theory/">English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="vi" value="//localhost:1313/vi/1-theory/" selected>Tiếng Việt</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830891&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
+</left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>02/02/2025</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Team </b> <br>
+           
+            <i>
+                <a href="https://www.linkedin.com/in/minhnghia2k3"  style="color:orange">Lê Minh Nghĩa</a>
+        </i>
+        </left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='//localhost:1313/vi/'>Amazon Bedrock Agent Workshop: Tích hợp khả năng biên dịch Code</a> > Giới thiệu Amazon Bedrock Agent
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Giới thiệu Amazon Bedrock Agent
+            </h1>
+          
+
+        
+
+
+
+	<h4 id="tổng-quan-về-amazon-bedrock"><strong>Tổng quan về Amazon Bedrock</strong></h4>
+<p>Amazon Bedrock là một dịch vụ được quản lý toàn diện, giúp các doanh nghiệp truy cập và sử dụng các <strong>Foundation Models (FMs)</strong> hiệu suất cao một cách dễ dàng và hiệu quả.</p>
+<hr>
+<h4 id="giới-thiệu-về-amazon-bedrock-agent"><strong>Giới thiệu về Amazon Bedrock Agent</strong></h4>
+<p>Amazon Bedrock Agent giúp các ứng dụng <strong>AI tạo sinh (Generative AI)</strong> thực hiện các tác vụ nhiều bước bằng cách kết nối với <strong>hệ thống, API và nguồn dữ liệu</strong> của doanh nghiệp.</p>
+<p>Agent sử dụng khả năng <strong>lập luận của Foundation Models (FMs)</strong> kết hợp với API và dữ liệu để <strong>phân tích yêu cầu của người dùng, truy xuất thông tin cần thiết và hoàn thành tác vụ một cách hiệu quả</strong>.</p>
+
+<div class="notices note" ><p>Trong workshop này, chúng ta sẽ sử dụng <strong>Foundation Model <a href="https://aws.amazon.com/blogs/aws/anthropics-claude-3-sonnet-foundation-model-is-now-available-in-amazon-bedrock/#:~:text=Introduction%20of%20Anthropic%E2%80%99s%20Claude%203%20Sonnet">Claude 3 Sonnet</a></strong>.</p>
+</div>
+
+<hr>
+<h4 id="phân-tích-kiến-trúc-amazon-bedrock-agent-với-code-interpreter"><strong>Phân tích kiến trúc Amazon Bedrock Agent với Code Interpreter</strong></h4>
+<p>Sơ đồ dưới đây minh họa cách <strong>Amazon Bedrock Agent</strong> kết hợp với <strong>Code Interpreter</strong> để xử lý các tác vụ phân tích dữ liệu, trực quan hóa và tính toán phức tạp.</p>
+<p><img src="//localhost:1313/images/architecture-workshop-04-bedrock-agent.svg" alt="architecture"></p>
+<p><strong>Luồng xử lý chính:</strong></p>
+<ol>
+<li><strong>Người dùng (Customer)</strong> gửi câu hỏi hoặc tải lên tệp dữ liệu.</li>
+<li><strong>Analytics Agent</strong> trong Amazon Bedrock tiếp nhận câu hỏi và tạo phản hồi dựa trên mô hình ngôn ngữ lớn (LLM). Nếu cần thực thi mã nguồn, agent sẽ chuyển tiếp nhiệm vụ đến <strong>Code Interpreter</strong>.</li>
+<li><strong>Code Interpreter</strong> nhận tệp đầu vào hoặc yêu cầu xử lý, thực hiện tính toán, phân tích, hoặc trực quan hóa dữ liệu.</li>
+<li>Sau khi hoàn thành, <strong>Code Interpreter</strong> tạo ra các tệp đầu ra và gửi kết quả trở lại cho <strong>Analytics Agent</strong>.</li>
+<li><strong>Analytics Agent</strong> tổng hợp thông tin và phản hồi lại cho người dùng.</li>
+</ol>
+<p><strong>Luồng xử lý tệp tin:</strong></p>
+<ul>
+<li>Người dùng có thể <strong>tải lên tệp dữ liệu</strong> để xử lý.</li>
+<li><strong>Analytics Agent</strong> chia sẻ các tệp này với <strong>Code Interpreter</strong>.</li>
+<li><strong>Code Interpreter</strong> thực thi mã trên tệp đầu vào và tạo ra <strong>tệp kết quả (output files)</strong>.</li>
+<li>Các tệp kết quả này sẽ được chia sẻ với người dùng để tải xuống hoặc tiếp tục sử dụng.</li>
+</ul>
+<hr>
+<h4 id="các-tính-năng-nổi-bật-và-ứng-dụng-của-amazon-bedrock-agent"><strong>Các tính năng nổi bật và ứng dụng của Amazon Bedrock Agent</strong></h4>
+<p><strong>1. Multi-agent collaboration – Hợp tác giữa nhiều Agent</strong><br>
+Tính năng này giúp các nhà phát triển dễ dàng <strong>tạo, triển khai và quản lý nhiều Agent chuyên biệt</strong>, cho phép chúng làm việc cùng nhau để xử lý các quy trình kinh doanh phức tạp.</p>
+<p><img src="//localhost:1313/images/1-theory/image.png" alt="multi-agent"></p>
+<p><strong>2. Retrieval-Augmented Generation (RAG) – Truy xuất dữ liệu để tăng cường khả năng sinh văn bản</strong><br>
+Agent có thể <strong>kết nối với các nguồn dữ liệu của doanh nghiệp</strong> để cung cấp câu trả lời chính xác cho người dùng.</p>
+<p>🔹 <strong>Ví dụ:</strong> Người dùng hỏi: <em>&ldquo;Lịch sử Python bắt đầu như thế nào?&rdquo;</em></p>
+<ul>
+<li><strong>Bước 1:</strong> AI tìm kiếm thông tin từ một nguồn bên ngoài (ví dụ: Wikipedia).</li>
+<li><strong>Bước 2:</strong> AI tổng hợp và tạo câu trả lời dựa trên dữ liệu tìm được.</li>
+<li><strong>Kết quả:</strong> <em>&ldquo;Python được tạo ra bởi Guido van Rossum vào năm 1991 nhằm giúp lập trình dễ đọc hơn và hiệu quả hơn.&rdquo;</em></li>
+</ul>
+<p>👉 <strong>Lợi ích:</strong> Giúp AI trả lời những câu hỏi mà dữ liệu không có sẵn trong mô hình, nhưng có thể lấy từ nguồn bên ngoài.</p>
+<p><img src="//localhost:1313/images/1-theory/image-1.png" alt="rag"></p>
+<p><strong>3. Orchestrate and execute multistep tasks – Điều phối và thực hiện tác vụ nhiều bước</strong><br>
+Người dùng có thể chọn một <strong>mô hình AI</strong> và viết hướng dẫn đơn giản, chẳng hạn:<br>
+<em>&ldquo;Bạn là một Agent quản lý kho hàng, giúp xác định sản phẩm có sẵn trong hệ thống.&rdquo;</em></p>
+<p>Agent sẽ <strong>phân tích nhiệm vụ, chia nhỏ thành các bước hợp lý</strong> và tự động gọi các API cần thiết để hoàn thành yêu cầu.</p>
+<p><strong>4. Memory retention across interactions – Ghi nhớ ngữ cảnh trong các lần tương tác</strong><br>
+Amazon Bedrock Agent có thể <strong>ghi nhớ thông tin từ các lần tương tác trước</strong>, giúp tạo ra trải nghiệm liền mạch và cá nhân hóa hơn.</p>
+<p>Ví dụ, nếu người dùng đã hỏi về <strong>tồn kho sản phẩm X</strong> trước đó, Agent có thể nhớ thông tin này và không yêu cầu nhập lại trong các truy vấn tiếp theo.</p>
+<p><img src="//localhost:1313/images/1-theory/image-2.png" alt="memory"></p>
+<p><strong>5. Code interpretation – Diễn giải và thực thi mã nguồn</strong><br>
+Agent có thể <strong>tạo và thực thi mã nguồn trong môi trường an toàn</strong>, giúp tự động hóa các truy vấn phân tích phức tạp.</p>
+<p><img src="//localhost:1313/images/1-theory/image-3.png" alt="code-interpretation"></p>
+<p>👉 <strong>Ứng dụng:</strong><br>
+✅ <strong>Phân tích dữ liệu</strong><br>
+✅ <strong>Trực quan hóa dữ liệu</strong> (vẽ biểu đồ, đồ thị)<br>
+✅ <strong>Giải quyết bài toán toán học phức tạp</strong></p>
+<p><strong>6. Prompt engineering – Tạo và tối ưu hóa lời nhắc (prompt)</strong><br>
+Agent có thể <strong>tự động tạo các prompt template</strong> từ <strong>hướng dẫn của người dùng, nhóm hành động và kho kiến thức</strong>.<br>
+Người dùng cũng có thể <strong>tinh chỉnh đầu vào, kế hoạch điều phối và phản hồi của mô hình</strong> để cải thiện kết quả.</p>
+<hr>
+<h4 id="cân-nhắc-về-chi-phí-cho-amazon-bedrock-agent"><strong>Cân nhắc về chi phí cho Amazon Bedrock Agent</strong></h4>
+<p>Trong workshop này, chúng ta sử dụng model <strong>Claude 3 Sonnet</strong>, với chi phí cụ thể như sau:</p>
+<table>
+  <thead>
+      <tr>
+          <th><strong>Anthropic models</strong></th>
+          <th><strong>Giá cho 1,000 input tokens</strong></th>
+          <th><strong>Giá cho 1,000 output tokens</strong></th>
+          <th><strong>Giá cho 1,000 input tokens (batch)</strong></th>
+          <th><strong>Giá cho 1,000 output tokens (batch)</strong></th>
+          <th><strong>Giá cho 1,000 input tokens (cache write)</strong></th>
+          <th><strong>Giá cho 1,000 input tokens (cache read)</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Claude 3 Sonnet</strong></td>
+          <td>$0.003</td>
+          <td>$0.015</td>
+          <td>$0.0015</td>
+          <td>$0.0075</td>
+          <td>N/A</td>
+          <td>N/A</td>
+      </tr>
+  </tbody>
+</table>
+
+<div class="notices info" ><p>📌 <strong>Lưu ý:</strong> Chi phí có thể thay đổi tùy theo mức độ sử dụng và phương thức triển khai. Hãy tham khảo <a href="https://aws.amazon.com/bedrock/pricing/">tài liệu chính thức của AWS</a> để biết thêm thông tin chi tiết.</p>
+</div>
+
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="//localhost:1313/vi/" title="Amazon Bedrock Agent Workshop: Tích hợp khả năng biên dịch Code"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="//localhost:1313/vi/2-prerequisites/" title="Chuẩn bị" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="//localhost:1313/js/clipboard.min.js?1747730864"></script>
+    <script src="//localhost:1313/js/perfect-scrollbar.min.js?1747730864"></script>
+    <script src="//localhost:1313/js/perfect-scrollbar.jquery.min.js?1747730864"></script>
+    <script src="//localhost:1313/js/jquery.sticky.js?1747730864"></script>
+    <script src="//localhost:1313/js/featherlight.min.js?1747730864"></script>
+    <script src="//localhost:1313/js/highlight.pack.js?1747730864"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="//localhost:1313/js/modernizr.custom-3.6.0.js?1747730864"></script>
+    <script src="//localhost:1313/js/learn.js?1747730864"></script>
+    <script src="//localhost:1313/js/hugo-learn.js?1747730864"></script>
+
+    <link href="//localhost:1313/mermaid/mermaid.css?1747730864" rel="stylesheet" />
+    <script src="//localhost:1313/mermaid/mermaid.js?1747730864"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>
